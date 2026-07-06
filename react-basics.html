@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>React Basics</title>
+  <style>
+    .displaying {
+      display: flex;
+      column-gap: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+    }
+
+    .for-sock,
+    .for-tShirt {
+      border: 2px solid gray;
+      padding: 20px;
+    }
+
+    .sock-button,
+    .tshirt-button {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+
+
+    const div = (
+      <div className="displaying">
+        <div className="for-sock">
+          <p className="cotton-sock">Cotton socks</p>
+          <p className="normal-price">Price: $10</p>
+          <button className="sock-button" onClick={
+            () => {
+              productCost += 10;
+              console.log(productCost);
+            }
+          }>Add to cart</button>
+        </div>
+        <div className="for-tShirt">
+          <p className="t-shirt">T shirts</p>
+          <p className="normal-price">Price: $8</p>
+          <button className="tshirt-button" onClick={
+            () => {
+              productCost += 8;
+              console.log(productCost);
+            }
+          }>Add to cart</button>
+        </div>
+
+        <p>Product cost:$ {productCost}</p>
+
+      </div>
+
+    );
+
+    let productCost = 0;
+
+
+
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(div);
+
+  </script>
+</body>
+
+</html>
